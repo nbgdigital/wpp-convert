@@ -17,18 +17,18 @@ fastify.post('/message', async (request, reply) => {
     reply
         .code(200)
         .send({ message: `https://wa.me/55${telefone}?text=${encodeURIComponent(encodedMessage)}`, status: 200 });
+});
 
-    const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8080;
 
-    const start = async () => {
-        try {
-            await fastify.listen(PORT, '0.0.0.0');
-            fastify.log.info(`Servidor rodando na porta ${PORT}`);
-        } catch (err) {
-            fastify.log.error(err);
-            process.exit(1);
-        }
-    };
+const start = async () => {
+    try {
+        await fastify.listen(PORT, '0.0.0.0');
+        fastify.log.info(`Servidor rodando na porta ${PORT}`);
+    } catch (err) {
+        fastify.log.error(err);
+        process.exit(1);
+    }
+};
 
 start();
-});
