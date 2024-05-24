@@ -11,7 +11,7 @@ fastify.post('/message', async (request, reply) => {
 
     const telefone = 81971172091
     // Codificar a mensagem em URL
-    const encodedMessage = `Olá, ${name} with ${plan}!`;
+    const encodedMessage = `Olá, ${name}.\n with ${plan}!`;
 
     // Retornar um status 200 e uma mensagem personalizada codificada em URL
     reply
