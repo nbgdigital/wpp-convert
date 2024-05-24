@@ -25,7 +25,7 @@ fastify.post('/message', async (request, reply) => {
     reply
         .code(200)
         .send({ 
-            message: `https://wa.me/55${sendPhone}?text=${encodeURIComponent(encodedMessage)}`,
+            message: `https://wa.me/55${sendPhone}?text=${encodeURI(encodedMessage)}`,
             status: 200
         });
 });
