@@ -6,7 +6,7 @@ fastify.post('/message', async (request, reply) => {
     // Extrair o corpo da requisição (JSON enviado pelo cliente)
     const {
         sendPhone,
-        name,
+        fullName,
         phone,
         dueDate,
         plan,
@@ -18,8 +18,11 @@ fastify.post('/message', async (request, reply) => {
         adjunct
     } = request.body;
 
+    const splitName = fullName.split(' ');
+    const name = splitName[0];
+
     // Codificar a mensagem em URL
-    const encodedMessage = `Olá, meu nome é ${name} e vim pelo instagram!\nDesejo fazer uma assinatura do Plano ${plan} com a data de vencimento dia ${dueDate}.\n\n😀Telefone pra contato é ${phone}\nEndereço é ${street}, número ${number}, ${district}, ${city}-${state}.\nPonto de referência é ${adjunct}.`;
+    const encodedMessage = `Olá, meu nome é ${name} e vim pelo instagram!\nNome completo: ${fullName}\nPlano: ${plan}\nData de vencimento: Dia ${dueDate}.\n\nTelefone pra contato: ${phone}\nEndereço: ${street}, número ${number}, ${district}, ${city}-${state}.\nPonto de referência: ${adjunct}.`;
 
     // Retornar um status 200 e uma mensagem personalizada codificada em URL
     reply
