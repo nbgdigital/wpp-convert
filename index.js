@@ -1,5 +1,5 @@
 // Importar o Fastify
-const fastify = require('fastify');
+const fastify = require('fastify')({ logger: false });
 
 // Definir a rota POST
 fastify.post('/message', async (request, reply) => {
