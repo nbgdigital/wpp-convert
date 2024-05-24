@@ -1,5 +1,5 @@
 // Importar o Fastify
-const fastify = require('fastify')({ logger: true });
+const fastify = require('fastify');
 
 // Definir a rota POST
 fastify.post('/message', async (request, reply) => {
@@ -18,22 +18,3 @@ fastify.post('/message', async (request, reply) => {
         .code(200)
         .send({ message: `https://wa.me/55${telefone}?text=${encodeURIComponent(encodedMessage)}`, status: 200 });
 });
-
-// Configurações do servidor
-const options = {
-    logger: true,
-    port: 3000,
-};
-
-// Iniciar o servidor
-const start = async () => {
-    try {
-        await fastify.listen(options);
-        fastify.log.info(`Servidor rodando em http://localhost:${options.port}`);
-    } catch (err) {
-        fastify.log.error(err);
-        process.exit(1);
-    }
-};
-
-start();
