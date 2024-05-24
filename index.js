@@ -27,7 +27,7 @@ fastify.post('/message', async (request, reply) => {
     const name = splitName[0];
 
     // Codificar a mensagem em URL
-    const encodedMessage = `Olá, meu nome é ${name} e vim pelo instagram!\n\n*Nome completo*: ${fullName}\nPlano: ${plan}\nData de vencimento: Dia ${dueDate}\n\nTelefone pra contato: ${phone}\nEndereço: ${street}, número ${number}, ${district}, ${city}-${state}\nPonto de referência ${adjunct}`;
+    const encodedMessage = `Olá, meu nome é ${name} e vim pelo instagram!\n\n*Nome completo*: ${fullName}\nTelefone pra contato: ${phone}\nPlano: ${plan}\nData de vencimento: Dia ${dueDate}\n\nEndereço: ${street}, número ${number}, ${district}, ${city}-${state}\nPonto de referência ${adjunct}`;
 
     // Retornar um status 200 e uma mensagem personalizada codificada em URL
     reply
