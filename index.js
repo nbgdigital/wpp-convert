@@ -18,7 +18,6 @@ fastify.post('/message', async (request, reply) => {
         adjunct
     } = request.body;
 
-    const telefone = 81971172091
     // Codificar a mensagem em URL
     const encodedMessage = `Olá, meu nome é ${name} e vim pelo instagram!\nDesejo fazer uma assinatura do Plano ${plan} com a data de vencimento dia ${dueDate}.\n\nTelefone pra contato é ${phone}\nEndereço é ${street}, número ${number}, ${district}, ${city}-${state}.\nPonto de referência é ${adjunct}.`;
 
@@ -26,7 +25,7 @@ fastify.post('/message', async (request, reply) => {
     reply
         .code(200)
         .send({ 
-            message: `https://wa.me/55${telefone}?text=${encodeURIComponent(encodedMessage)}`,
+            message: `https://wa.me/55${sendPhone}?text=${encodeURIComponent(encodedMessage)}`,
             status: 200
         });
 });
