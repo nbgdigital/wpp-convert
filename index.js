@@ -7,22 +7,18 @@ fastify.get('/check', async (request, reply) => {
 })
 
 // Verificar se é divisivel por 5
-fastify.post('/divided', async (request, reply) => {
-    const msg = 'test'
-
-    reply.code(200).send({ message: `${msg}` })
-})
-
-// Route test
-fastify.post('/test', async (request, reply) => {
-    const { number } = request.body
+fastify.post('/ismultiplie', async (request, reply) => {
+    const { number } = request.body;
     const convertToNumber = parseFloat(number);
 
-
     if (!isNaN(convertToNumber)) {
-        reply.send({ message: "É numero"})
+        if (convertToNumber % 5 === 0) {
+            reply.send({ message: "isDivisible"})
+        } else {
+            reply.send({ message: "IsNotDivisible" })
+        }
     } else {
-        reply.send({ message: "Não é numero" })
+        reply.send({ message: "NotNumber"})
     }
 })
 
