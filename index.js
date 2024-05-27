@@ -6,6 +6,20 @@ fastify.get('/check', async (request, reply) => {
     reply.code(200).send({ message: 'Success!' });
 })
 
+// Verificar se é divisivel por 5
+fastify.post('/divided', async (request, reply) => {
+    const msg = 'test'
+
+    reply.code(200).send({ message: `${msg}` })
+})
+
+// Route test
+fastify.post('/test', async (request, reply) => {
+    const { type } = request.body
+
+    console.log(typeof type)
+})
+
 // Definir a rota POST
 fastify.post('/message', async (request, reply) => {
     // Extrair o corpo da requisição (JSON enviado pelo cliente)
@@ -41,7 +55,7 @@ const PORT = process.env.PORT || 8080;
 
 const start = async () => {
     try {
-        await fastify.listen(PORT, '0.0.0.0');
+        await fastify.listen({port: PORT});
         fastify.log.info(`Servidor rodando na porta ${PORT}`);
     } catch (err) {
         fastify.log.error(err);
