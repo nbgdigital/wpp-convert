@@ -16,9 +16,14 @@ fastify.post('/divided', async (request, reply) => {
 // Route test
 fastify.post('/test', async (request, reply) => {
     const { number } = request.body
-    const isNumber = typeof number
+    const convertToNumber = parseFloat(number);
 
-    reply.send({ message: isNumber})
+
+    if (!isNaN(convertToNumber)) {
+        reply.send({ message: "É numero"})
+    } else {
+        reply.send({ message: "Não é numero" })
+    }
 })
 
 // Definir a rota POST
