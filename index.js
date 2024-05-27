@@ -15,9 +15,10 @@ fastify.post('/divided', async (request, reply) => {
 
 // Route test
 fastify.post('/test', async (request, reply) => {
-    const { type } = request.body
+    const { number } = request.body
+    const isNumber = typeof number
 
-    console.log(typeof type)
+    reply.send({ message: isNumber})
 })
 
 // Definir a rota POST
